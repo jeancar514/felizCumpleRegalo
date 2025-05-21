@@ -113,13 +113,13 @@ input#click {
     }
 }
 #click:checked ~ .wishes {
-  transform: translateY(-60px);
+  transform: translateY(-100px);
 }
 #click:checked ~ .sparkles {
   display: block;
 }
 #click:checked ~ .birthday-cake {
-  transform: scale(0.6) translateY(-290px);
+  transform: scale(0.6) translateY(-350px);
 }
 .sparkles {
   position: absolute;
