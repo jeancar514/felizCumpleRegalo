@@ -1,0 +1,401 @@
+:root {
+    --base-color: #607d8b;
+    --base-border-color: #455a64; 
+    --cake-color: #f5f1dd;
+    --cake-lines-color: #cba15f;
+    --chocolate-color: #783a0a; 
+    --candle-color: #9e9e9e;
+    --fire-color: yellow;
+    --inner-fire-color: orange;
+    --body-bg-color: #a8ecc1;
+}
+body {
+  display: flex;
+  background-color: rgba(145, 247, 244, 0.845);
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.birthday-gift {
+  position: relative;
+}
+.birthday-gift:before {
+  content:"";
+  position: absolute;
+  width: 170px;
+  height:20px;
+  border-radius:50%;
+  background-color: rgba(0,0,0,0.4);
+  top:90px;
+  left:-10px;
+}
+input#click {
+  display: none;
+}
+.gift {
+  position: relative;
+  width: 150px;
+  height: 100px;
+  background-color: #e9c46a;
+}
+.gift:before {
+  content:"";
+  position: absolute;
+  width: 25px;
+  height: 100px;
+  background-color: #e76f51;
+  left:62px;
+}
+.gift:after {
+  content:"";
+  position: absolute;
+  box-shadow: inset 0 10px rgba(0,0,0,0.3);
+  width: 150px;
+  height: 100px;
+}
+.click {
+  position: absolute;
+  background-color: #e9c46a;
+  width: 170px;
+  height: 40px;
+  top:-40px;
+  left:-10px;
+  transform-origin: bottom left;
+  transition: .3s;
+  cursor: pointer;
+}
+.click:before {
+  content:"";
+  position: absolute;
+  width: 25px;
+  height: 40px;
+  background-color: #e76f51;
+  left:69px;
+}
+.click:after {
+  content:"";
+  position: absolute;
+  width: 5px;
+  height: 0;
+  border-bottom: 30px solid #e76f51;
+  border-top: 30px solid #e76f51;
+  border-left: 0px solid transparent;
+  border-right: 30px solid transparent;
+  transform: rotate(-90deg);
+  left:65px;
+  top:-47px;
+}
+#click:checked + .click {
+  transform: rotate(-110deg) scaleX(0.85);
+}
+.wishes {
+  position: absolute; 
+  font-weight: bold;
+  transition: .5s;
+  color: #333;
+  font-size: 25px;
+  text-align: center;
+  z-index: -1;
+  left: 0px;
+  top: 0px;
+}
+
+.birthday-cake {
+  position: absolute; 
+  transition: .5s;
+  z-index: -1;
+  left: -40px;
+  top: 0px;
+}
+@media (min-width: 5px) {
+    .birthday-cake {
+        transform: scale(0.6);
+    }
+}
+#click:checked ~ .wishes {
+  transform: translateY(-60px);
+}
+#click:checked ~ .sparkles {
+  display: block;
+}
+#click:checked ~ .birthday-cake {
+  transform: scale(0.6) translateY(-290px);
+}
+.sparkles {
+  position: absolute;
+  display: none;
+  top:-15px;
+  z-index:-2;
+  left:40px;
+}
+.spark1, .spark2, .spark3, .spark4, .spark5, .spark6 {
+  position: absolute;
+  background-color: #fee440;
+  border-radius:50%;
+  top:-9px;
+  z-index:-1;
+}
+.spark1 {
+  width: 8px;
+  height:8px;
+  left:30px;
+  top:-9px;
+  animation: fire 0.9s ease-in-out infinite, color 0.4s linear infinite;
+}
+.spark1:before {
+  content:"";
+  position: absolute;
+  width:5px;
+  height:5px;
+  top:8px;
+  left:11px;
+  background-color: #fee440;
+  border-radius:50%;
+}
+.spark2 {
+  width: 9px;
+  height:9px;
+  left:33px;
+  top:-5px;
+  animation: fire2 0.28s ease-in-out infinite, color 0.4s linear infinite;
+}
+.spark2:before {
+  content:"";
+  position: absolute;
+  width:5px;
+  height:5px;
+  top:12px;
+  left:3px;
+  background-color: #fee440;
+  border-radius:50%;
+}
+.spark3 {
+  width: 8.5px;
+  height:8.5px;
+  left:33px;
+  top:-5px;
+  animation: fire3 0.36s ease-in-out infinite, color2 0.4s linear infinite;
+}
+.spark3:before {
+  content:"";
+  position: absolute;
+  width:5px;
+  height:5px;
+  top:12px;
+  left:-1px;
+  background-color: #fee440;
+  border-radius:50%;
+}
+.spark4 {
+  width: 7px;
+  height:7px;
+  left:27px;
+  top:-5px;
+  animation: fire2 0.24s ease-in-out infinite, color2 0.2s linear infinite;
+}
+.spark5 {
+  width: 7px;
+  height:7px;
+  left:29px;
+  top:-5px;
+  animation: fire3 0.45s ease-in-out infinite, color 0.2s linear infinite;
+}
+.spark6 {
+  width: 6px;
+  height:6px;
+  left:29px;
+  top:-5px;
+  animation: fire 0.35s ease-in-out infinite, color2 0.2s linear infinite;
+}
+@keyframes fire3 {
+  100% { transform:translateX(20px) translateY(-93px); opacity: 0.3; }
+}
+@keyframes fire2 {
+  100% { transform:translateX(-5px) translateY(-90px); opacity: 0.3; }
+}
+@keyframes fire {
+  100% { transform:translateX(-25px) translateY(-95px); opacity: 0.3; }
+}
+@keyframes color {
+  from {background-color: #d00000;}
+  to {background-color: #0081a7;}
+}
+@keyframes color2 {
+  from {background-color: #8cff00;}
+  to {background-color: #1d2d44;}
+}
+.click-instruction {
+  margin-top: 15px;
+  font-size: 1.2em;
+  color: #555;
+  font-weight: bold;
+  padding: 8px 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+
+
+.birthday-cake .candle {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: var(--candle-color);
+    margin: 0 auto;
+}
+
+.birthday-cake .candle::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: calc(50% - 1px);
+    width: 2px;
+    height: 6px;
+    background-color: #555;
+    opacity: .8;
+}
+
+.birthday-cake .candle .fire {
+    position: absolute;
+    opacity: .7;
+    background: var(--fire-color);
+    width: 20px;
+    height: 20px;
+    margin-top: -25px;
+    transform: rotate(45deg);
+    left: calc(50% - 10px);
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    animation: flaming 3s ease-in-out infinite;
+}
+
+.birthday-cake .candle .inner-fire {
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    opacity: .5;
+    background: var(--inner-fire-color);
+    width: 10px;
+    height: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    animation: flaming-inner 2s ease-out infinite;
+}
+
+.birthday-cake .extra {
+    margin: 0 auto;
+    background-color: var(--chocolate-color);
+    width: 90px;
+    height: 20px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    position: relative;
+    top: 0;
+}
+
+.birthday-cake .cake {
+    position: relative;
+    width: 150px;
+    height: 90px;
+    margin: 0 auto;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    
+    background-color: var(--cake-color);
+}
+
+.birthday-cake .cake::after,
+.birthday-cake .cake::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background-color: var(--cake-lines-color);
+    left: 0;
+}
+
+.birthday-cake .cake::after {
+    bottom: 15px;
+}
+
+.birthday-cake .cake::before {
+    bottom: 35px;
+}
+
+.birthday-cake .cake .top {
+    position: relative;
+    width: 100%;
+    height: 25px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: var(--chocolate-color);
+}
+
+.birthday-cake .cake .top::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 20px;
+    top: 20px;
+    left: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: var(--chocolate-color);
+    box-shadow:
+        25px -6px var(--chocolate-color),
+        50px -3px var(--chocolate-color),
+        75px 0 var(--chocolate-color),
+        100px 5px var(--chocolate-color),
+        125px 0px var(--chocolate-color);
+}
+
+.birthday-cake .cake .top::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 20px;
+    top: 19px;
+    left: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: var(--cake-color);
+    box-shadow:
+        25px -8px var(--cake-color),
+        50px -5px var(--cake-color),
+        75px -3px var(--cake-color),
+        100px -1px var(--cake-color),
+        125px 0px var(--cake-color);
+}
+
+.birthday-cake .base {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+}
+
+.birthday-cake .base .base-1 {
+    width: 225px;
+    height: 15px;
+    background-color: var(--base-color);
+    border-top: 3px solid var(--base-border-color);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+@keyframes flaming {
+    50% {
+        transform: scaleY(.9) rotate(45deg) translate(3px, 3px);
+    }
+}
+
+@keyframes flaming-inner {
+    50% {
+        transform: scale(1.1) translate(-1px, -1px);
+    }
+}
